@@ -10,9 +10,9 @@ import { Form } from "./EditBookData";
 // add input styling
       export const Input = styled.input`
           height:30px;
-          width:20px;
-          background-color:black ;
-          color:white ;
+          width:200px;
+          background-color:white ;
+          color:black ;
       `;
 
 

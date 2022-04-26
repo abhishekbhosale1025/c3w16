@@ -8,16 +8,29 @@ export const Grid = styled.div`
  add required style here
 `;
 
-const Books = () => {
+const Books =() => {
   const [data, setData] = useState([]);
-  useEffect(async() => {
+  useEffect( () => {
     // make a GET request to http://localhost:8080/books to get all the books data
 
-    let res = await fetch(`http://localhost:8080/books`)
+    async function getData(){
 
-    let data = res.json() ;
+      try{
 
-    setData(data) ;
+        let res = await fetch(`http://localhost:8080/books`)
+
+        let data = await res.json() ;
+    
+        setData(data) ;
+
+      }
+
+      catch(e)
+      {
+        console.log(e)
+      }
+    }
+    getData() 
   }, []);
 
   return (
@@ -26,7 +39,11 @@ const Books = () => {
       <Grid data-testid="books-container">
         {/* {!!data && 
           // map thorugh the data and use <BookCard/> component to display each book
-          } */}
+          } */
+          
+          data.map((el)=>
+          
+          <BookCard  item={el}   />)}
       </Grid>
     </>
   );

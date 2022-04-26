@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const AuthContext = React.createContext();
 
 const AuthContextProvider = ({ children }) => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState("");
 
   const handleLogin = async (email, password) => {
     //  api request to reqres.in for the token
